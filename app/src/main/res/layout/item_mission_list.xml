@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="mission"
+            type="net.ormlite.todo.ui.pojo.Mission" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/tv_mission_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{mission.name}"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_mission_status"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_mission_createTime" />
+
+        <TextView
+            android:id="@+id/tv_mission_createTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(mission.createTime)}"
+            dateTime="@{mission.createTime}"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_mission_status"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_mission_name" />
+
+        <TextView
+            android:id="@+id/tv_mission_status"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:layout_height="wrap_content"
+            missionStatus="@{mission.status}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
